@@ -1,4 +1,7 @@
-<p>home works!</p>
-<br>
-
-<app-home-map></app-home-map>
+<mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+    <mat-button-toggle value="precipitaciones" click="changeTipoMapa('precipitaciones')">¿Hace cuanto que no llueve?</mat-button-toggle>
+    <mat-button-toggle value="area" click="changeTipoMapa('area')">¿cuanta area esta en sequia?</mat-button-toggle>
+    <mat-button-toggle value="otroMapa" click="changeTipoMapa('otroMapa')">otro mapa</mat-button-toggle>
+</mat-button-toggle-group>
+<hr>
+<app-home-map [tipoMapa]="tipoMapa"></app-home-map>

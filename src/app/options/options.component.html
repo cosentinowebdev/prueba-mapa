@@ -1,1 +1,30 @@
-<p>options works!</p>
+<mat-card style="width: 90%;">
+    <mat-card-title>
+        opciones
+    </mat-card-title>
+    <mat-card-content>
+        <form class="example-form">
+            <p>Seleccione la fecha de referencia para calcular días sin lluvia. Haga click sobre la misma para desplegar el calendario</p>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Seleccione la fecha *</mat-label>
+              <input matInput type="date" placeholder="Ex. Pizza" value="Sushi">
+            </mat-form-field>
+            <hr>
+            <p>Indique el monto mínimo de precipitación diaria para que un día se considere lluvioso</p>
+            <mat-form-field appearance="fill">
+                <mat-label>Indique el monto mínimo de precipitación diaria para que un día se considere lluvioso</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let lluvia of lluvias" [value]="lluvia.value">
+                    {{lluvia.title}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <hr>
+            <button mat-flat-button>
+                <mat-icon>file_download</mat-icon>
+                Descargar mapa a PNG
+            </button>
+            
+        </form>
+    </mat-card-content>
+</mat-card>

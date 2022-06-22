@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 import * as L  from "leaflet";
 import { MarkerService } from '../servicios/marker.service';
 
@@ -23,13 +23,13 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./home-map.component.css']
 })
 export class HomeMapComponent implements AfterViewInit {
-
+  @Input() tipoMapa:string | undefined; 
   private map:any;
 
 
 
   constructor(private makerService:MarkerService) { 
-
+    // alert(this.tipoMapa)
   }
   ngAfterViewInit(): void {
     this.initMap();

@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  tipoMapa:string = "precipitaciones";
   constructor() { }
 
   ngOnInit(): void {
+  }
+  changeTipoMapa(valor:any): void{
+    console.log(valor);
   }
 
 }

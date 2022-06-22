@@ -9,7 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './servicios/marker.service';
 import { HomeComponent } from './home/home.component';
 import { OptionsComponent } from './options/options.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,13 @@ import { OptionsComponent } from './options/options.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    MatButtonToggleModule
   ],
   providers: [
     MarkerService
