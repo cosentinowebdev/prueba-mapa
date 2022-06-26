@@ -1,7 +1,12 @@
 <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
-    <mat-button-toggle value="precipitaciones" click="changeTipoMapa('precipitaciones')">¿Hace cuanto que no llueve?</mat-button-toggle>
-    <mat-button-toggle value="area" click="changeTipoMapa('area')">¿cuanta area esta en sequia?</mat-button-toggle>
-    <mat-button-toggle value="otroMapa" click="changeTipoMapa('otroMapa')">otro mapa</mat-button-toggle>
+    <a mat-button-toggle href="/monitoreo/estado-actual-de-la-sequia/tiempoNoLLuvia">¿Hace cuanto que no llueve?</a>
+    <a mat-button-toggle href="/monitoreo/estado-actual-de-la-sequia/areaEnSequia">¿cuanta area esta en sequia?</a>
+    <a mat-button-toggle href="/monitoreo/estado-actual-de-la-sequia/otro">otro mapa</a>
 </mat-button-toggle-group>
 <hr>
-<app-home-map [tipoMapa]="tipoMapa"></app-home-map>
+<ng-container *ngIf="id=='tiempoNoLLuvia'">
+    <app-home-map [tipoMapa]="id"></app-home-map>
+</ng-container>
+<ng-container *ngIf="id!='tiempoNoLLuvia'">
+    <p>trae un componente que no es un mapa</p>
+</ng-container>

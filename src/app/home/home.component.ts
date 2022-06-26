@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   tipoMapa:string = "precipitaciones";
-  constructor() { }
+  id: any;
+  constructor(public route: ActivatedRoute) { 
+    this.route.params.forEach((params: Params) => {
+      this.id = params['id'];
+    });
+  }
 
   ngOnInit(): void {
+    console.log(this.id);
   }
   changeTipoMapa(valor:any): void{
     console.log(valor);

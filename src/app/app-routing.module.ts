@@ -4,7 +4,9 @@ import { HomeMapComponent } from './home-map/home-map.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent}
+  {path:'',component:HomeComponent},
+  {path:'monitoreo/estado-actual-de-la-sequia/:id',component:HomeComponent},
+  
 ];
 
 @NgModule({
