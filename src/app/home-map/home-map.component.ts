@@ -38,11 +38,12 @@ export class HomeMapComponent implements AfterViewInit {
   private initMap(): void {
     this.map = L.map('map', {
       center: [ -36, -64 ],
-      zoom: 3
+      zoom: 4
     });
-    const tiles = L.tileLayer('https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-      maxZoom: 10,
-      minZoom: 5,
+      const tiles = L.tileLayer('//server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+//    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 16,
+      minZoom: 0,
       attribution: ''
     });
 
