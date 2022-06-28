@@ -1,8 +1,7 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
-import * as L from 'leaflet';
-// import * as L  from "leaflet";//libreria 1
-// import {  } from "@asymmetrik/ngx-leaflet";
-// import "@ngageoint/leaflet-geopackage";//libreria 1
+declare const L: any;
+import "@ngageoint/leaflet-geopackage";//libreria 1
+
 import { MarkerService } from '../servicios/marker.service';
 
 
@@ -49,12 +48,35 @@ export class HomeMapComponent implements AfterViewInit {
       minZoom: 5,
       attribution: '<a href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> + <a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>'
     });
-
     tiles.addTo(this.map);
-    var algo = L.geoPackageFeatureLayer([], {
-      geoPackageUrl: 'http://ngageoint.github.io/GeoPackage/examples/rivers.gpkg',
-      layerName: 'rivers'
-  }).addTo(this.map);
+    try {
+      L.geoPackageFeatureLayer([], {
+        geoPackageUrl: 'https://ngageoint.github.io/GeoPackage/examples/rivers.gpkg',
+        layerName: 'rivers',
+        style: function(feature:any) {
+          return {
+            color: '#F00',
+            weight: 2,
+            opacity: 1,
+          };
+        },
+        onEachFeature: function(feature:any, layer:any) {
+          let string = '';
+          for (const key in feature.properties) {
+            string +=
+              '<div class="item"><span class="label">' +
+              key +
+              ': </span><span class="value">' +
+              feature.properties[key] +
+              '</span></div>';
+          }
+          layer.bindPopup(string);
+        }
+      }).addTo(this.map);
+    } catch (e) {
+      console.error(e);
+    }
+
   }
 
   AfterViewInit(): void {

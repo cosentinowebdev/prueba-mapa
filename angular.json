@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["chart.js"],
             "outputPath": "dist/angular-smn-prueba",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -37,7 +38,10 @@
               "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/leaflet/dist/leaflet.js",
+              "./node_modules/@ngageoint/leaflet-geopackage/leaflet-geopackage.js"
+            ]
           },
           "configurations": {
             "production": {
