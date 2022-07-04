@@ -17,25 +17,24 @@ export class MarkerService {
         const lat = c.geometry.coordinates[1];
         const marker = L.circle([lat, lon],100);
 
-
-
-        /*
+        
         L.tileLayer.wms("http://localhost:8080/geoserver/sissa/wms?",{
-            layers: "sissa:Sudamerica",
+            layers: "sissa:prueba",
             format: "image/png",
             transparent: true,
             attribution:"SISSA"
         }).addTo(map);
-        */
+        
 
         var nexrad = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
             layers: 'nexrad-n0r-900913',
             format: 'image/png',
             transparent: true,
-            attribution: "dvillca"
+            attribution: "PoC"
         });
         
         nexrad.addTo(map);
+        
         marker.addTo(map);
       }
     });
